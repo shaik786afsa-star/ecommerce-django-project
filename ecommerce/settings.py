@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-ag7w#^f8%*53($_9=uopt2osolj#@8@0l%$o47z)pulcw75j8d
 # ⚠️ Development mode (change to False during deployment)
 DEBUG = True
 
-ALLOWED_HOSTS = []   # add your domain when deploying
+ALLOWED_HOSTS = ["*"]   # add your domain when deploying
 
 
 # 📦 APPLICATIONS
