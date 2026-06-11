@@ -98,10 +98,9 @@ This project helped in understanding:
 ##Author
 
 **Shaik Afsa**
-
 ---
 
 ## GitHub Repository
 https://github.com/shaik786afsa-star/ecommerce-django-project
 
-Just tell 👍
+
