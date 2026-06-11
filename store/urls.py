@@ -14,5 +14,7 @@ urlpatterns = [
 
     path('increase/<int:id>/', views.increase_quantity, name='increase'),
     path('decrease/<int:id>/', views.decrease_quantity, name='decrease'),
-    path('login/', views.user_login, name='login'),
+
+    path('place-order/', views.place_order, name='place_order'),
+    path('my-orders/', views.my_orders, name='my_orders'),
 ]

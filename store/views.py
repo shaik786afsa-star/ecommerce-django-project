@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
-from .models import Product, Cart
+from .models import Product, Cart, Order
 
 
 # 🏠 HOME
@@ -126,3 +126,33 @@ def user_login(request):
             })
 
     return render(request, 'login.html')
+# 📦 PLACE ORDER
+@login_required
+def place_order(request):
+
+    cart_items = Cart.objects.filter(user=request.user)
+
+    for item in cart_items:
+        Order.objects.create(
+            user=request.user,
+            product=item.product,
+            quantity=item.quantity,
+            total_price=item.product.price * item.quantity
+        )
+
+    cart_items.delete()
+
+    return redirect('my_orders')
+
+
+# 📜 MY ORDERS
+@login_required
+def my_orders(request):
+
+    orders = Order.objects.filter(
+        user=request.user
+    ).order_by('-created_at')
+
+    return render(request, 'orders.html', {
+        'orders': orders
+    })

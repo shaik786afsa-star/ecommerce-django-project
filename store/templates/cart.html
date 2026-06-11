@@ -1,21 +1,67 @@
-<h1>Your Cart 🛒</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Cart</title>
+</head>
+<body>
 
-{% for item in cart_items %}
-  <div style="margin-bottom: 20px;">
-    <h3>{{ item.product.name }}</h3>
-    <p>Price: ₹{{ item.product.price }}</p>
+    <h1>Your Cart 🛒</h1>
 
-    <p>
-      Quantity: {{ item.quantity }}
-      <a href="/increase/{{ item.id }}/">+</a>
-      <a href="/decrease/{{ item.id }}/">-</a>
-    </p>
+    {% if cart_items %}
 
-    <p>Total: ₹{{ item.product.price|floatformat:2|add:"0"|floatformat }}</p>
+        {% for item in cart_items %}
+            <div style="border:1px solid #ddd;padding:15px;margin-bottom:15px;border-radius:8px;">
 
-    <a href="{% url 'remove' item.id %}">Remove</a>
-  </div>
-  <hr>
-{% endfor %}
+                <h3>{{ item.product.name }}</h3>
 
-<h2>Total Bill: ₹{{ total }}</h2>
+                <p><strong>Price:</strong> ₹{{ item.product.price }}</p>
+
+                <p>
+                    <strong>Quantity:</strong> {{ item.quantity }}
+
+                    <a href="{% url 'increase' item.id %}"
+                       style="padding:5px 10px;text-decoration:none;background:#28a745;color:white;border-radius:4px;">
+                        +
+                    </a>
+
+                    <a href="{% url 'decrease' item.id %}"
+                       style="padding:5px 10px;text-decoration:none;background:#dc3545;color:white;border-radius:4px;">
+                        -
+                    </a>
+                </p>
+
+                <p>
+                    <strong>Item Total:</strong>
+                    ₹{{ item.product.price|floatformat:2 }}
+                </p>
+
+                <a href="{% url 'remove' item.id %}"
+                   style="color:red;text-decoration:none;">
+                    Remove Item
+                </a>
+
+            </div>
+        {% endfor %}
+
+        <h2>Total Bill: ₹{{ total }}</h2>
+
+        <a href="{% url 'place_order' %}"
+           style="
+                background:#007bff;
+                color:white;
+                padding:12px 20px;
+                text-decoration:none;
+                border-radius:6px;
+                font-weight:bold;
+           ">
+            Place Order
+        </a>
+
+    {% else %}
+
+        <h2>Your cart is empty.</h2>
+
+    {% endif %}
+
+</body>
+</html>
