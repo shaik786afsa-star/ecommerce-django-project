@@ -76,8 +76,7 @@ Source code available in this repository.
 ![Home Page](screenshots/home.png)
 
 ### Product Detail Page
-
-![Product Detail](screenshots/product.png)
+![Product Detail](screenshots/product%20details.png)
 
 ### Cart Page
 
@@ -88,17 +87,7 @@ Source code available in this repository.
 ![Orders Page](screenshots/orders.png)
 
 ### Login Page
-
-![Login Page](screenshots/login.png)
-
-### Register Page
-
-![Register Page](screenshots/register.png)
----
-
-##Author
-
-**Shaik Afsa**
+![Login Page](screenshots/login.jpeg)
 ---
 
 ## GitHub Repository
