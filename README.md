@@ -1,107 +1,69 @@
-#  E-Commerce Website using Django
+# 🛒 Django E-Commerce Store
 
-## Project Overview
+This project was developed as part of the **CodeAlpha Full Stack Development Internship**.
 
-This is a full-stack **E-commerce web application** built using **Django (Python)**.
-It allows users to browse products, view details, manage a shopping cart, and place orders. The project also includes user authentication and an admin panel for managing products and orders.
+## 📌 Project Overview
 
-## Features
+A fully functional E-Commerce web application built using Django. Users can browse products, view product details, add items to their cart, place orders, and manage their accounts.
 
-###User Features
+## 🚀 Features
 
-* User Registration & Login system
-* Product listing page
-* Product detail page
-* Add to Cart functionality
-* Update quantity in cart
-* Remove items from cart
-* Order placement system
-* Order history page
+* User Registration & Login
+* Product Listings
+* Product Detail Page
+* Shopping Cart
+* Order Processing
+* Product Search
+* Orders History
+* Admin Panel
 
-### Admin Features
+## 🛠️ Tech Stack
 
-* Add / Update / Delete products
-* Manage user orders
-* View registered users
-* Django Admin dashboard
+* Frontend: HTML, CSS, JavaScript
+* Backend: Django (Python)
+* Database: SQLite
+* Version Control: Git & GitHub
 
----
+## 📸 Screenshots
 
-## Tech Stack
+### Home Page
 
-* **Frontend:** HTML, CSS, JavaScript
-* **Backend:** Django (Python)
-* **Database:** SQLite
-* **Deployment:** PythonAnywhere
-* **Tools:** Django Admin Panel, Git & GitHub
+![Home Page](screenshots/home.png)
 
----
+### Product Detail Page
 
-## Project Modules
+![Product Detail](screenshots/product.png)
 
-* User Authentication Module
-* Product Management Module
-* Shopping Cart Module
-* Order Processing Module
-* Admin Management Module
+### Cart Page
 
----
+![Cart Page](screenshots/cart.png)
 
-## Workflow
+### Orders Page
 
-1. User registers and logs in
-2. User browses products
-3. User adds products to cart
-4. User updates or removes items
-5. User places order
-6. Order is stored in database
-7. Admin manages products and orders
+![Orders Page](screenshots/orders.png)
 
----
+### Login Page
 
-## Project Structure (Example)
+![Login Page](screenshots/login.png)
 
-```
-EcommerceProject/
-│
-├── manage.py
-├── db.sqlite3
-├── app/
-├── templates/
-├── static/
-└── requirements.txt
-```
+### Register Page
 
----
+![Register Page](screenshots/register.png)
 
-## Future Improvements
+## 🔮 Future Improvements
 
-Future Improvements
-- Payment gateway integration
-- Product category filtering
-- Wishlist functionality
-- Product reviews and ratings
-- Order tracking system
----
+* Payment Gateway Integration
+* Product Categories
+* Wishlist Functionality
+* Product Reviews & Ratings
+* Order Tracking System
 
-## Learning Outcome
+## 📂 GitHub Repository
 
-This project helped in understanding:
+Source code available in this repository.
 
-* Full-stack web development using Django
-* Database management using ORM
-* User authentication systems
-* Cart and order processing logic
-* Deployment process using PythonAnywhere
+## 👩‍💻 Author
 
----
+Afsa Shaik
 
-##Author
-
-**Shaik Afsa**
----
-
-## GitHub Repository
-https://github.com/shaik786afsa-star/ecommerce-django-project
-
-
+CodeAlpha Full Stack Development Intern
