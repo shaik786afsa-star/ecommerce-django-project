@@ -3,17 +3,23 @@ Django settings for ecommerce project.
 """
 
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # 🔐 SECURITY
-SECRET_KEY = 'django-insecure-ag7w#^f8%*53($_9=uopt2osolj#@8@0l%$o47z)pulcw75j8d'
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-fallback-key-change-this'
+)
 
-# ⚠️ Development mode (change to False during deployment)
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ["*"]   # add your domain when deploying
+ALLOWED_HOSTS = os.environ.get(
+    'ALLOWED_HOSTS',
+    '.onrender.com,localhost,127.0.0.1'
+).split(',')
 
 
 # 📦 APPLICATIONS
@@ -32,6 +38,8 @@ INSTALLED_APPS = [
 # 🧱 MIDDLEWARE
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -41,7 +49,6 @@ MIDDLEWARE = [
 ]
 
 
-# 🌐 URL CONFIG
 ROOT_URLCONF = 'ecommerce.urls'
 
 
@@ -49,7 +56,7 @@ ROOT_URLCONF = 'ecommerce.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],   # FIXED (important)
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -62,11 +69,10 @@ TEMPLATES = [
 ]
 
 
-# 🚀 WSGI
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 
-# 🗄 DATABASE
+# 🗄 DATABASE (SQLite for now)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -77,41 +83,31 @@ DATABASES = {
 
 # 🔐 PASSWORD VALIDATION
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 
 # 🌍 INTERNATIONALIZATION
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Kolkata'   # FIXED for India
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
 USE_TZ = True
 
 
-# 📁 STATIC FILES (CSS, JS)
+# 📁 STATIC FILES
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-# 🖼 MEDIA FILES (images, uploads)
+# 🖼 MEDIA FILES
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -122,5 +118,5 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 
-# ⚡ OPTIONAL (good for future deployment)
+# ⚡ DEFAULT AUTO FIELD
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
