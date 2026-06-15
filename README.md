@@ -46,9 +46,6 @@ A fully functional E-Commerce web application built using Django. Users can brow
 
 ![Login Page](screenshots/login.png)
 
-### Register Page
-
-![Register Page](screenshots/register.png)
 
 ## Future Improvements
 
