@@ -62,7 +62,50 @@ A fully functional E-Commerce web application built using Django. Users can brow
 
 Source code available in this repository.
 
+
 ## Author
+=======
+* Full-stack web development using Django
+* Database management using ORM
+* User authentication systems
+* Cart and order processing logic
+* Deployment process using PythonAnywhere
+
+---
+## Screenshots
+
+### Home Page
+
+![Home Page](screenshots/home.png)
+
+### Product Detail Page
+
+![Product Detail](screenshots/product.png)
+
+### Cart Page
+
+![Cart Page](screenshots/cart.png)
+
+### Orders Page
+
+![Orders Page](screenshots/orders.png)
+
+### Login Page
+
+![Login Page](screenshots/login.png)
+
+### Register Page
+
+![Register Page](screenshots/register.png)
+---
+
+##Author
+
+**Shaik Afsa**
+---
+
+## GitHub Repository
+https://github.com/shaik786afsa-star/ecommerce-django-project
 
 Afsa Shaik
 
