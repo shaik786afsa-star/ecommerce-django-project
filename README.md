@@ -76,11 +76,12 @@ EcommerceProject/
 
 ## Future Improvements
 
-* Payment gateway integration (Razorpay/Stripe)
-* Product search and filtering
-* Order tracking system
-* Advanced UI improvements
-
+Future Improvements
+- Payment gateway integration
+- Product category filtering
+- Wishlist functionality
+- Product reviews and ratings
+- Order tracking system
 ---
 
 ## Learning Outcome
