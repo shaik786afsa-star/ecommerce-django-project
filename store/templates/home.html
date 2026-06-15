@@ -7,11 +7,63 @@
         body{
             font-family: Arial, sans-serif;
             background:#f4f4f4;
-            margin:20px;
+            margin:0;
+            padding:0;
+        }
+
+        /* Navbar */
+        #navbar{
+            height:60px;
+            background:#0f1111;
+            display:flex;
+            align-items:center;
+            padding:0 20px;
+        }
+
+        #navbar a{
+            color:white;
+            text-decoration:none;
+            margin-right:30px;
+            font-size:16px;
+        }
+
+        #navbar a:hover{
+            color:#00bfff;
+        }
+
+        #logo{
+            font-size:22px;
+            font-weight:bold;
+            color:#f08804 !important;
+        }
+
+        .search-box{
+            margin-left:auto;
+        }
+
+        .search-box input{
+            padding:8px;
+            width:250px;
+            border-radius:4px;
+            border:none;
+        }
+
+        .search-box button{
+            padding:8px 12px;
+            border:none;
+            background:#f08804;
+            color:white;
+            border-radius:4px;
+            cursor:pointer;
+        }
+        .search-box form{
+        display:flex;
+        gap:5px;
         }
 
         h1{
             text-align:center;
+            margin:20px 0;
         }
 
         .products{
@@ -19,6 +71,7 @@
             flex-wrap:wrap;
             gap:20px;
             justify-content:center;
+            padding:20px;
         }
 
         .card{
@@ -37,12 +90,12 @@
             border-radius:8px;
         }
 
-        .card a{
+        .card h2 a{
             text-decoration:none;
             color:black;
         }
 
-        .card a:hover{
+        .card h2 a:hover{
             color:blue;
         }
 
@@ -52,7 +105,7 @@
             font-size:20px;
         }
 
-        button{
+        .cart-btn{
             background:blue;
             color:white;
             border:none;
@@ -62,7 +115,7 @@
             border-radius:5px;
         }
 
-        button:hover{
+        .cart-btn:hover{
             background:darkblue;
         }
     </style>
@@ -70,47 +123,58 @@
 
 <body>
 
-<h1>My Store</h1>
+    <!-- Navbar -->
+    <div id="navbar">
+        <a id="logo" href="/">Amazon.in</a>
 
-<div class="products">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'cart' %}">My Cart</a>
+        <a href="{% url 'my_orders' %}">Orders</a>
 
-{% for product in products %}
+        <div class="search-box">
+    <form method="GET" action="{% url 'home' %}">
+        <input
+            type="text"
+            name="q"
+            placeholder="Search products"
+            value="{{ request.GET.q }}"
+        >
+        <button type="submit">Search</button>
+    </form>
+    </div>
+    </div>
 
-<div class="card">
+    <h1>My Store</h1>
 
-    {% if product.image %}
-        <img src="{{ product.image }}" alt="{{ product.name }}">
-    {% endif %}
+    <div class="products">
 
-<h2>
-    <a href="{% url 'product_detail' product.id %}">
-        {{ product.name }}
-    </a>
-</h2>
+        {% for product in products %}
 
-    <p>{{ product.description }}</p>
+        <div class="card">
 
-    <p class="price">₹{{ product.price }}</p>
+            {% if product.image %}
+                <img src="{{ product.image }}" alt="{{ product.name }}">
+            {% endif %}
 
-<a href="{% url 'add_to_cart' product.id %}">
-    <button>Add to Cart</button>
-</a>
-<h2>Login</h2>
+            <h2>
+                <a href="{% url 'product_detail' product.id %}">
+                    {{ product.name }}
+                </a>
+            </h2>
 
-<form method="POST">
-  {% csrf_token %}
-  <input type="text" name="username" placeholder="Username">
-  <input type="password" name="password" placeholder="Password">
-  <button type="submit">Login</button>
-</form>
+            <p>{{ product.description }}</p>
 
-<p style="color:red">{{ error }}</p>
+            <p class="price">₹{{ product.price }}</p>
 
-</div>
+            <a href="{% url 'add_to_cart' product.id %}">
+                <button class="cart-btn">Add to Cart</button>
+            </a>
 
-{% endfor %}
+        </div>
 
-</div>
+        {% endfor %}
+
+    </div>
 
 </body>
 </html>

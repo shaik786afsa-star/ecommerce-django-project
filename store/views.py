@@ -7,10 +7,22 @@ from .models import Product, Cart, Order
 
 
 # 🏠 HOME
-def home(request):
-    products = Product.objects.all()
-    return render(request, 'home.html', {'products': products})
+from django.db.models import Q
 
+def home(request):
+    query = request.GET.get('q')
+
+    if query:
+        products = Product.objects.filter(
+            Q(name__icontains=query) |
+            Q(description__icontains=query)
+        )
+    else:
+        products = Product.objects.all()
+
+    return render(request, 'home.html', {
+        'products': products
+    })
 
 # 📄 PRODUCT DETAIL
 def product_detail(request, product_id):
