@@ -1,12 +1,12 @@
-# 🛒 Django E-Commerce Store
+#  Django E-Commerce Store
 
 This project was developed as part of the **CodeAlpha Full Stack Development Internship**.
 
-## 📌 Project Overview
+## Project Overview
 
 A fully functional E-Commerce web application built using Django. Users can browse products, view product details, add items to their cart, place orders, and manage their accounts.
 
-## 🚀 Features
+## Features
 
 * User Registration & Login
 * Product Listings
@@ -17,7 +17,7 @@ A fully functional E-Commerce web application built using Django. Users can brow
 * Orders History
 * Admin Panel
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * Frontend: HTML, CSS, JavaScript
 * Backend: Django (Python)
@@ -50,7 +50,7 @@ A fully functional E-Commerce web application built using Django. Users can brow
 
 ![Register Page](screenshots/register.png)
 
-## 🔮 Future Improvements
+## Future Improvements
 
 * Payment Gateway Integration
 * Product Categories
@@ -58,11 +58,11 @@ A fully functional E-Commerce web application built using Django. Users can brow
 * Product Reviews & Ratings
 * Order Tracking System
 
-## 📂 GitHub Repository
+##  GitHub Repository
 
 Source code available in this repository.
 
-## 👩‍💻 Author
+## Author
 
 Afsa Shaik
 
